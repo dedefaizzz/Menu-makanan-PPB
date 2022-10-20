@@ -1,7 +1,7 @@
 package com.example.menumakanan;
 
 public class Kuliner {
-    private String nama, alamat, deskripsi;
+    private String nama, alamat, deskripsi, harga;
 
     /*
      * image resourcenya menggunakan index int
@@ -10,11 +10,12 @@ public class Kuliner {
     private int id_gambar;
 
     // generate cunstructor
-    public Kuliner(String nama, String alamat, String deskripsi, int id_gambar) {
+    public Kuliner(String nama, String alamat, String deskripsi, int id_gambar, String harga) {
         this.nama = nama;
         this.alamat = alamat;
         this.deskripsi = deskripsi;
         this.id_gambar = id_gambar;
+        this.harga = harga;
     }
 
     // generate getter and setter
@@ -45,4 +46,7 @@ public class Kuliner {
     public void setId_gambar(int id_gambar) {
         this.id_gambar = id_gambar;
     }
+
+    public String getHarga() { return harga; }
+    public void setHarga(String harga) { this.harga = harga; }
 }

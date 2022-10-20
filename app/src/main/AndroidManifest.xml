@@ -14,7 +14,10 @@
         android:theme="@style/Theme.MenuMakanan"
         tools:targetApi="31">
         <activity
-            android:name=".Deskripsi"
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeskripsiMakanan"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

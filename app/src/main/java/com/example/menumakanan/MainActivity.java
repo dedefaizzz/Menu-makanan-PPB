@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     // diperlukan juga array list untuk menampung data yang digunakan di recycler view
     private ArrayList<Kuliner> listKuliner;
@@ -33,23 +34,27 @@ public class MainActivity extends AppCompatActivity {
         this.listKuliner = new ArrayList<>();
         listKuliner.add(new Kuliner("Mie Dokdok",
                 "Burjo Asih || Jl. Imam Bonjol 35",
-                "Mie Dokdok Khas Burjo Asih",
-                R.drawable.mie));
+                "Mie Dokdok Khas Burjo Asih dengan pilihan goreng atau rebus. Menggunakan 2 siung bawang merah, 1 siung bawang putih, dan tambahan topping telor",
+                R.drawable.mie,
+                "9000"));
 
         listKuliner.add(new Kuliner("Ayam Bali Burjo",
                 "Burjo Asih || Jl. Imam Bonjol 35",
-                "Ayam Bali dari Bali",
-                R.drawable.ayambali));
+                "Ayam Burjo Bali dari Bali dengan geprekan ayam broiler yang sudah di goreng tepung, bisa memilih level pedas",
+                R.drawable.ayambali,
+                "12000"));
 
         listKuliner.add(new Kuliner("Nasi Rames Telor",
                 "Burjo Asih || Jl. Imam Bonjol 35",
-                "Nasi Rames Dicampur Telor",
-                R.drawable.telor));
+                "Nasi Rames Dicampur Telor + kacang panjang",
+                R.drawable.telor,
+                "10000"));
 
         listKuliner.add(new Kuliner("Nasi Goreng Magelangan",
                 "Burjo Asih || Jl. Imam Bonjol 35",
-                "Nasi Goreng Biasa tapi magelang",
-                R.drawable.nasgor));
+                "Nasi Goreng Biasa tapi magelang khas Burjo Asih, bisa pilih level pedas",
+                R.drawable.nasgor,
+                "10000"));
 
         /*
          * Dari drawable nya mengambil resource yang digenerate

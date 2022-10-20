@@ -1,6 +1,7 @@
 package com.example.menumakanan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,9 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
     private ArrayList<Kuliner> listKuliner;
     public KulinerAdapter(ArrayList<Kuliner> listKuliner) {
         this.listKuliner = listKuliner;
+
     }
+
 
     @NonNull
     @Override
@@ -37,7 +40,8 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
         Kuliner kuliner = listKuliner.get(position);
         holder.txtNama.setText(kuliner.getNama());
         holder.txtAlamat.setText(kuliner.getAlamat());
-        holder.txtDeskripsi.setText(kuliner.getDeskripsi());
+        holder.txtHarga.setText(kuliner.getHarga());
+        // holder.txtDeskripsi.setText(kuliner.getDeskripsi());
         holder.imgFoto.setImageResource(kuliner.getId_gambar());
         /* image resource bernilai index int
          * berada pada kuliner.java */
@@ -45,7 +49,14 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(holder.mainLayout.getContext(), kuliner.getDeskripsi(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+
+                intent.putExtra("nama", kuliner.getNama());
+                intent.putExtra("harga", kuliner.getHarga());
+                intent.putExtra("alamat", kuliner.getAlamat());
+                intent.putExtra("deskripsi", kuliner.getDeskripsi());
+                intent.putExtra("gambar", kuliner.getId_gambar());
+                view.getContext().startActivity(intent);
             }
         });
     }
@@ -58,7 +69,7 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtNama, txtAlamat, txtDeskripsi;
+        public TextView txtNama, txtAlamat, txtDeskripsi, txtHarga;
         public ImageView imgFoto;
 
         /*
@@ -73,7 +84,8 @@ public class KulinerAdapter extends RecyclerView.Adapter<KulinerAdapter.ViewHold
 
             txtNama = (TextView) itemView.findViewById(R.id.txtNama);
             txtAlamat = (TextView) itemView.findViewById(R.id.txtAlamat);
-            txtDeskripsi = (TextView) itemView.findViewById(R.id.txtDeskripsi);
+            txtHarga = (TextView) itemView.findViewById(R.id.txtHarga);
+            // txtDeskripsi = (TextView) itemView.findViewById(R.id.txtDeskripsi);
             imgFoto = (ImageView) itemView.findViewById(R.id.imgFoto);
             mainLayout = (ConstraintLayout) itemView.findViewById(R.id.mainLayout);
         }
